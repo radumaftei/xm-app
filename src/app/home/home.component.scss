@@ -1,0 +1,31 @@
+.home-wrapper {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #EEB7B7;
+
+  &--button__active {
+    &--home {
+      background: #ffd740;
+    }
+
+    &--favourites {
+      background: #673ab7;
+    }
+  }
+
+  button {
+    padding: 30px;
+  }
+
+  button, mat-icon {
+    font-size: 2.5rem;
+  }
+
+  mat-icon {
+    width: 30px;
+    height: 25px;
+    margin-right: 5px;
+  }
+}

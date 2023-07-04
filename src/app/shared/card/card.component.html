@@ -1,0 +1,27 @@
+<mat-card>
+<!--  we have data from parent in here-->
+  <ng-container *ngIf="!imageUrl">
+    <img mat-card-image
+         id="hallelujah"
+         *ngIf="image$ | async as image; else loadingImage"
+         (click)="onPhotoClick($event)"
+         [src]="getUrlFromBlob(image)"
+         alt="Image loading">
+  </ng-container>
+
+<!--  no parent data -->
+
+  <ng-container *ngIf="imageUrl">
+    <img mat-card-image
+         [src]="imageUrl"
+         alt="Image loading">
+  </ng-container>
+
+  <ng-template #loadingImage>
+    <mat-spinner
+      [diameter]="50"
+      [strokeWidth]="3"
+      color="primary">
+    </mat-spinner>
+  </ng-template>
+</mat-card>
