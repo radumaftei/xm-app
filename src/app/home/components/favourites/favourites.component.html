@@ -1,1 +1,5 @@
-<app-card *ngFor="let url of favouriteImages" [imageUrl]="url"></app-card>
+<ng-container *ngIf="favouriteImages && favouriteImages.length">
+  <ng-container *ngFor="let image of favouriteImages">
+    <app-card  [imageUrl]="image.url" [imageId]="image.id"></app-card>
+  </ng-container>
+</ng-container>

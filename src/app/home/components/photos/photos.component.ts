@@ -1,5 +1,4 @@
-import {Component, DoCheck, HostListener, OnInit} from '@angular/core';
-import {Utils} from "../../../utils";
+import {Component, HostListener, OnInit} from '@angular/core';
 import {PhotosService} from "./photos.service";
 
 @Component({

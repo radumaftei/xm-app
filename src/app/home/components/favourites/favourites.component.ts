@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import {PhotosService} from "../photos/photos.service";
-import {Utils} from "../../../utils";
-import {LOCAL_STORAGE_KEY} from "../../../shared/constants";
+import {Component, OnInit} from '@angular/core';
+import {ImageData, PhotosService} from "../photos/photos.service";
 
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss']
 })
-export class FavouritesComponent {
-  favouriteImages = Utils.getFromLocalStorageAsObj(LOCAL_STORAGE_KEY);
+export class FavouritesComponent implements OnInit {
+  favouriteImages: ImageData[] = [];
+
+    constructor(private  photosService: PhotosService) {}
+
+  ngOnInit() {
+    this.photosService.loadImagesFromLocalStorage();
+    this.favouriteImages = JSON.parse(JSON.stringify(this.photosService.favourites));
+  }
 }

@@ -2,10 +2,9 @@
 <!--  we have data from parent in here-->
   <ng-container *ngIf="!imageUrl">
     <img mat-card-image
-         id="hallelujah"
          *ngIf="image$ | async as image; else loadingImage"
          (click)="onPhotoClick($event)"
-         [src]="getUrlFromBlob(image)"
+         [src]="getImageData(image)"
          alt="Image loading">
   </ng-container>
 
@@ -13,6 +12,7 @@
 
   <ng-container *ngIf="imageUrl">
     <img mat-card-image
+         (click)="onFavouritePhotoClick()"
          [src]="imageUrl"
          alt="Image loading">
   </ng-container>
